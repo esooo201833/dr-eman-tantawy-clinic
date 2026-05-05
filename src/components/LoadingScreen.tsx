@@ -8,6 +8,10 @@ export default function LoadingScreen({ children }: { children: React.ReactNode 
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Faster loading for mobile
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const loadTime = isMobile ? 1500 : 2000; // Faster on mobile
+
     // Simulate loading progress
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
@@ -15,18 +19,30 @@ export default function LoadingScreen({ children }: { children: React.ReactNode 
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + Math.random() * 15;
+        return prev + (isMobile ? 20 : 15); // Faster progress on mobile
       });
-    }, 200);
+    }, isMobile ? 100 : 150);
 
     // Hide loading screen after content loads
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, loadTime);
+
+    // Skip loading on user interaction (click/touch)
+    const skipLoading = () => {
+      clearTimeout(timer);
+      clearInterval(progressInterval);
+      setIsLoading(false);
+    };
+
+    window.addEventListener('click', skipLoading, { once: true });
+    window.addEventListener('touchstart', skipLoading, { once: true });
 
     return () => {
       clearTimeout(timer);
       clearInterval(progressInterval);
+      window.removeEventListener('click', skipLoading);
+      window.removeEventListener('touchstart', skipLoading);
     };
   }, []);
 
@@ -161,6 +177,16 @@ export default function LoadingScreen({ children }: { children: React.ReactNode 
               transition={{ delay: 0.6 }}
             >
               Loading...
+            </motion.p>
+
+            {/* Tap to Skip - Mobile Only */}
+            <motion.p
+              className="mt-6 text-[#c9a227]/80 text-xs md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              اضغط للتخطي | Tap to skip
             </motion.p>
 
             {/* Floating Particles - Optimized to 3 */}
