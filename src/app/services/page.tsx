@@ -215,16 +215,24 @@ export default function Services() {
                     transition={{ duration: 0.8 }}
                     className={`relative ${isEven ? 'lg:order-1' : 'lg:order-2'}`}
                   >
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                      <img
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl group cursor-pointer transition-all duration-500 hover:shadow-[0_0_40px_rgba(201,162,39,0.4)] hover:ring-4 hover:ring-[#c9a227]/30">
+                      <motion.img
                         src={service.image}
                         alt={service.name}
-                        className="w-full h-[400px] object-cover"
+                        className="w-full h-[400px] object-cover transition-all duration-500 ease-out group-hover:scale-110"
                         loading="lazy"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.4 }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/60 to-transparent group-hover:from-[#1e3a5f]/40 transition-all duration-500" />
                       <div className="absolute bottom-6 left-6 right-6">
-                        <span className="text-white font-bold text-2xl">{translatedName}</span>
+                        <motion.span 
+                          className="text-white font-bold text-2xl block"
+                          whileHover={{ x: 10 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {translatedName}
+                        </motion.span>
                       </div>
                     </div>
                   </motion.div>
