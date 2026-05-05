@@ -224,12 +224,7 @@ export default function Services() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/60 to-transparent" />
                       <div className="absolute bottom-6 left-6 right-6">
-                        <div className="flex items-center space-x-3">
-                          <div className="bg-white/90 backdrop-blur-sm p-3 rounded-xl">
-                            <Icon size={28} className="text-[#1e3a5f]" />
-                          </div>
-                          <span className="text-white font-bold text-2xl">{translatedName}</span>
-                        </div>
+                        <span className="text-white font-bold text-2xl">{translatedName}</span>
                       </div>
                     </div>
                   </motion.div>
