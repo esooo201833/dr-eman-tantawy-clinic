@@ -29,11 +29,13 @@ export default function Footer() {
           {/* About */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <img
-                src={clinicData.logo.url}
-                alt={clinicData.logo.alt}
-                className="h-12 w-12 rounded-full object-cover"
-              />
+              <div className="group cursor-pointer transition-all duration-300 hover:ring-4 hover:ring-[#c9a227]/30 rounded-full">
+                <img
+                  src={clinicData.logo.url}
+                  alt={clinicData.logo.alt}
+                  className="h-12 w-12 rounded-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(201,162,39,0.5)]"
+                />
+              </div>
               <div>
                 <h3 className="font-bold text-lg">{isRTL ? 'عيادة د. إيمان طنطاوي' : clinicData.name}</h3>
                 <p className="text-[#c9a227] text-sm">{t.hero.tagline}</p>

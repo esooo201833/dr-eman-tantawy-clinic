@@ -128,13 +128,15 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="relative"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl group cursor-pointer transition-all duration-500 hover:shadow-[0_0_40px_rgba(201,162,39,0.4)] hover:ring-4 hover:ring-[#c9a227]/30">
+                <motion.img
                   src={clinicData.images.hero}
                   alt="Dr. Eman Tantawy Dental Clinic"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover transition-all duration-500 ease-out group-hover:scale-110"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/50 to-transparent group-hover:from-[#1e3a5f]/30 transition-all duration-500" />
               </div>
             </motion.div>
           </div>

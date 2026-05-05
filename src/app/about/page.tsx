@@ -245,7 +245,7 @@ export default function About() {
               className="relative"
             >
               {/* Image Container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video group cursor-pointer transition-all duration-500 hover:shadow-[0_0_40px_rgba(201,162,39,0.4)] hover:ring-4 hover:ring-[#c9a227]/30">
                 <motion.img
                   key={isBefore ? 'before' : 'after'}
                   src={isBefore ? currentCase.before : currentCase.after}
@@ -253,7 +253,8 @@ export default function About() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-110"
+                  whileHover={{ scale: 1.05 }}
                 />
                 
                 {/* Overlay Label */}

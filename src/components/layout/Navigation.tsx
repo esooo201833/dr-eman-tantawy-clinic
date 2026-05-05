@@ -26,14 +26,14 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <motion.div
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="relative"
+              className="relative group cursor-pointer transition-all duration-300 hover:ring-4 hover:ring-[#c9a227]/30 rounded-full"
             >
               <img
                 src={clinicData.logo.url}
                 alt={clinicData.logo.alt}
-                className="h-14 w-14 rounded-full object-cover"
+                className="h-14 w-14 rounded-full object-cover transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(201,162,39,0.5)]"
               />
             </motion.div>
             <div className="hidden sm:block">
